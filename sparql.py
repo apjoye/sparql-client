@@ -485,7 +485,7 @@ class _Query(_ServiceMixin):
             with eventlet.timeout.Timeout(timeout):
                 try:
                     buf.write(response.read())
-                except eventlet.timeout.Timeout, error:
+                except eventlet.timeout.Timeout as error:
                     raise SparqlException('Timeout', repr(error))
         else:
             buf.write(response.read())
@@ -508,7 +508,7 @@ class _Query(_ServiceMixin):
 
         try:
             response = self._build_response(query, opener, buf, timeout)
-        except SparqlException, error:
+        except SparqlException as error:
             self.endpoint = error.message
             response = self._build_response(query, opener, buf, timeout)
 
