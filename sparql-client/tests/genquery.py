@@ -6,7 +6,7 @@ query = { 'query': statement,
  'format':'xml' }
 
 qs = urllib.urlencode(query)
-print qs
+print(qs)
 url = "http://dbpedia.org/sparql?" + urllib.urlencode(query)
 
 opener = urllib2.build_opener(urllib2.HTTPHandler)
@@ -24,4 +24,4 @@ if not conn:
 
 data = conn.read()
 conn.close()
-print data
+print(data)

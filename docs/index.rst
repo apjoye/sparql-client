@@ -24,9 +24,9 @@ Briefly, here is how it works::
     [u'station', u'orbits']
 
     >>> for row in result:
-    ...     print 'row:', row
+    ...     print('row:' + row)
     ...     values = sparql.unpack_row(row)
-    ...     print values[0], "-", values[1], "orbits"
+    ...     print (values[0] + "-" + values[1] + "orbits")
     row: (<IRI <http://dbpedia.org/resource/Mir>>, <Literal "86331"^^<http://www.w3.org/2001/XMLSchema#int>>)
     http://dbpedia.org/resource/Mir - 86331 orbits
     row: (<IRI <http://dbpedia.org/resource/Salyut_7>>, <Literal "51917"^^<http://www.w3.org/2001/XMLSchema#int>>)

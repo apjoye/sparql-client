@@ -656,7 +656,7 @@ class _ResultsParser(object):
             import sys
 
             faultString = 'The data is ' + e.message
-            print >>sys.stderr, faultString
+            print(>>sys.stderr + faultString)
             yield tuple()
 
     def fetchall(self):
@@ -703,9 +703,9 @@ def _interactive(endpoint):
                 sys.stdout.write("  done\n")
 
                 for row in result.fetchone():
-                    print "\t".join(map(unicode,row))
+                    print("\t".join(map(unicode,row)))
 
-                print
+                print()
                 lines = []
 
         except Exception, e:
@@ -749,8 +749,8 @@ if __name__ == '__main__':
     try:
         result = query(endpoint, q)
         for row in result.fetchone():
-            print "\t".join(map(unicode,row))
+            print("\t".join(map(unicode,row)))
     except SparqlException, e:
         faultString = e.message
-        print >>sys.stderr, faultString
+        print(>>sys.stderr + faultString)
 

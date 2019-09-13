@@ -64,9 +64,9 @@ class TestParser(unittest.TestCase):
 
 
 #       for row in result.fetchone():
-#           print row
+#           print(row)
 #       row1 = result.fetchone()
-#       print row1[0]
+#       print(row1[0])
 
     def test_w3_example(self):
         """ Check that http://www.w3.org/TR/rdf-sparql-XMLres/output.srx works """
@@ -117,7 +117,7 @@ class TestParser(unittest.TestCase):
         result = sparql._ResultsParser(resultfp)
         setattr(result, 'events', result._fetchhead())
         for row in result.fetchone():
-          print row
+          print(row)
 
 
 if __name__ == '__main__':
