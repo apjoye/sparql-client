@@ -656,7 +656,7 @@ class _ResultsParser(object):
             import sys
 
             faultString = 'The data is ' + e.message
-            print(>>sys.stderr + faultString)
+            print(sys.stderr + faultString)
             yield tuple()
 
     def fetchall(self):
@@ -752,5 +752,5 @@ if __name__ == '__main__':
             print("\t".join(map(unicode,row)))
     except SparqlException, e:
         faultString = e.message
-        print(>>sys.stderr + faultString)
+        print(sys.stderr + faultString)
 
