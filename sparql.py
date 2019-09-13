@@ -477,7 +477,7 @@ class _Query(_ServiceMixin):
                 raise SparqlException(response_code, ret)
             else:
                 return response
-        except Exception, error:
+        except Exception as error:
             raise SparqlException('Error', error.message)
 
     def _read_response(self, response, buf, timeout):
@@ -555,7 +555,7 @@ class RedirectHandler(urllib2.HTTPRedirectHandler):
     """
     Subclass the HTTPRedirectHandler to re-contruct request when follow redirect
     """
-    def redirect_request(self, req, fp, code, msg, headers, newurl): 
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
         if code in (301, 302, 303, 307):
             raise SparqlException(code, newurl)
         else:
