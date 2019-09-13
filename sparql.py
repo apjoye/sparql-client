@@ -48,7 +48,6 @@ Otherwise, the query is read from standard input.
 """
 
 from base64 import encodestring
-from string import replace
 from urllib import urlencode
 from xml.dom import pulldom
 from xml.sax import SAXParseException
