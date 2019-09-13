@@ -652,7 +652,7 @@ class _ResultsParser(object):
                     if node.tagName == 'result':
                         #print "rtn:", len(self._vals), self._vals
                         yield tuple(self._vals)
-        except SAXParseException, e:
+        except SAXParseException as e:
             import sys
 
             faultString = 'The data is ' + e.message
