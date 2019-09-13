@@ -708,7 +708,7 @@ def _interactive(endpoint):
                 print()
                 lines = []
 
-        except Exception, e:
+        except Exception as e:
             sys.stderr.write(str(e))
 
 
