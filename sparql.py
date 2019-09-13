@@ -750,7 +750,7 @@ if __name__ == '__main__':
         result = query(endpoint, q)
         for row in result.fetchone():
             print("\t".join(map(unicode,row)))
-    except SparqlException, e:
+    except SparqlException as e:
         faultString = e.message
         print(sys.stderr + faultString)
 
