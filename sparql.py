@@ -532,7 +532,7 @@ class _Query(_ServiceMixin):
         args = []
         # refs #72876 removing the replace of newline to allow the comments in sparql queries
         #statement = statement.replace("\n", " ").encode('utf-8')
-        statement = statement.encode('utf-8')
+        statement = str(statement.encode('utf-8'))
 
         pref = ' '.join(["PREFIX %s: <%s> " % (p, self._prefix_map[p]) for p in self._prefix_map])
 
