@@ -57,7 +57,7 @@ import re
 import tempfile
 
 import eventlet
-from eventlet.green import urllib2
+from eventlet.green.urllib import request
 
 try:
     __version__ = open('version.txt').read().strip()
@@ -459,10 +459,10 @@ class _Query(_ServiceMixin):
             else:
                 separator = '?'
             uri = self.endpoint.strip() + separator + query
-            return urllib2.Request(uri.encode('ASCII'))
+            return request.Request(uri.encode('ASCII'))
         else:
             uri = self.endpoint.strip().encode('ASCII')
-            return urllib2.Request(uri, data=query)
+            return request.Request(uri, data=query)
 
     def _get_response(self, opener, request, buf, timeout=None):
         try:
@@ -501,7 +501,7 @@ class _Query(_ServiceMixin):
         query = self._queryString(statement)
         buf = tempfile.NamedTemporaryFile()
 
-        opener = urllib2.build_opener(RedirectHandler)
+        opener = request.build_opener(RedirectHandler)
         opener.addheaders = self.headers().items()
 
         try:
@@ -549,7 +549,7 @@ class _Query(_ServiceMixin):
         return urlencode(args)
 
 
-class RedirectHandler(urllib2.HTTPRedirectHandler):
+class RedirectHandler(request.HTTPRedirectHandler):
     """
     Subclass the HTTPRedirectHandler to re-contruct request when follow redirect
     """
