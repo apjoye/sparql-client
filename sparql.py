@@ -458,7 +458,7 @@ class _Query(_ServiceMixin):
             #     separator = '&'
             # else:
             #     separator = '?'
-            uri = self.endpoint.strip() + separator + query
+            uri = self.endpoint.strip() + '?' + query
             return request.Request(uri.encode('ASCII'))
         else:
             uri = self.endpoint.strip().encode('ASCII')
