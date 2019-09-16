@@ -454,10 +454,10 @@ class _Query(_ServiceMixin):
 
     def _build_request(self, query):
         if self.method == "GET":
-            if '?' in self.endpoint:
-                separator = '&'
-            else:
-                separator = '?'
+            # if '?' in self.endpoint:
+            #     separator = '&'
+            # else:
+            #     separator = '?'
             uri = self.endpoint.strip() + separator + query
             return request.Request(uri.encode('ASCII'))
         else:
