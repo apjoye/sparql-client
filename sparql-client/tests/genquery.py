@@ -1,13 +1,14 @@
+import urllib2
 
-import urllib,urllib2
+from urllib.parse import urlencode
 
 statement = open("code.rq").read()
 query = { 'query': statement,
  'format':'xml' }
 
-qs = urllib.urlencode(query)
+qs = urlencode(query)
 print(qs)
-url = "http://dbpedia.org/sparql?" + urllib.urlencode(query)
+url = "http://dbpedia.org/sparql?" + urlencode(query)
 
 opener = urllib2.build_opener(urllib2.HTTPHandler)
 urllib2.install_opener(opener)
