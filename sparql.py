@@ -476,7 +476,7 @@ class _Query(_ServiceMixin):
             else:
                 return response
         except Exception as error:
-            raise SparqlException('Error', error.message)
+            raise SparqlException('Error', error)
 
     def _read_response(self, response, buf, timeout):
         if timeout > 0:
@@ -507,7 +507,7 @@ class _Query(_ServiceMixin):
         try:
             response = self._build_response(query, opener, buf, timeout)
         except SparqlException as error:
-            self.endpoint = error.message
+            self.endpoint = error
             response = self._build_response(query, opener, buf, timeout)
 
         self._read_response(response, buf, timeout)
@@ -653,7 +653,7 @@ class _ResultsParser(object):
         except SAXParseException as e:
             import sys
 
-            faultString = 'The data is ' + e.message
+            faultString = 'The data is ' + e
             print(sys.stderr + faultString)
             yield tuple()
 
@@ -749,6 +749,6 @@ if __name__ == '__main__':
         for row in result.fetchone():
             print("\t".join(map(unicode,row)))
     except SparqlException as e:
-        faultString = e.message
+        faultString = e
         print(sys.stderr + faultString)
 
